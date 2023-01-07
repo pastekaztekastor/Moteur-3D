@@ -22,7 +22,10 @@ namespace M3D_ISICG
 		glEnable( GL_DEPTH_TEST );
 		
 		_meshBunny.load( "bunny1", _meshBunny._dirPath + "bunny2/bunny_2.obj" );
-		_meshSponza.load( "conference1", _meshSponza._dirPath + "conference/conference.obj" );
+		_meshSponza.load( "sponza1", _meshSponza._dirPath + "sponza/sponza.obj" );
+		_meshSponza._transformation = glm::scale( _meshSponza._transformation, glm::vec3( 0.0003 ) );
+
+		_mesh = _meshBunny;
 
 		std::cout << "Initializing lab work 4..." << std::endl;
 		LabWork5::_initCamera();
@@ -120,7 +123,7 @@ namespace M3D_ISICG
 
 	void LabWork5::_initCamera()
 	{
-		_camera.setPosition( Vec3f( 0, 1, 3 ) );
+		_camera.setPosition( Vec3f( 0, 0, 0.2 ) );
 		_camera.setScreenSize( _windowWidth, _windowHeight );
 	}
 
@@ -143,7 +146,7 @@ namespace M3D_ISICG
 
 	void LabWork5::displayUI()
 	{
-		ImGui::Begin( "Settings lab work 4" );
+		ImGui::Begin( "Settings lab work 5" );
 		if ( ImGui::ColorEdit3( "couleur fond", glm::value_ptr( _bgColor ) ) )
 		{
 			glClearColor( _bgColor.x, _bgColor.y, _bgColor.z, _bgColor.w );
@@ -153,7 +156,8 @@ namespace M3D_ISICG
 			_camera.setFovy( _fovySlider );
 			_updateMVPMatrix();
 		}
-		if (ImGui::Button("Change Model")) {
+		if ( ImGui::Button( _mesh._name.c_str() ) )
+		{
 			_selectMesh = ( _selectMesh + 1 ) % 2;
 			
 			if ( _selectMesh )

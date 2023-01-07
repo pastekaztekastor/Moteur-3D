@@ -24,6 +24,8 @@ namespace M3D_ISICG
 		_meshBunny.load( "bunny1", _meshBunny._dirPath + "bunny/bunny.obj" );
 		_meshConference.load( "conference1", _meshConference._dirPath + "conference/conference.obj" );
 		_meshConference._transformation = glm::scale( _meshConference._transformation, glm::vec3( 0.003f ) );
+		
+		_mesh							= _meshBunny;
 
 		std::cout << "Initializing lab work 4..." << std::endl;
 		LabWork4::_initCamera();
@@ -154,7 +156,8 @@ namespace M3D_ISICG
 			_camera.setFovy( _fovySlider );
 			_updateMVPMatrix();
 		}
-		if (ImGui::Button("Change Model")) {
+		if ( ImGui::Button(  _mesh._name.c_str() ) )
+		{
 			_selectMesh = ( _selectMesh + 1 ) % 2;
 			
 			if ( _selectMesh )

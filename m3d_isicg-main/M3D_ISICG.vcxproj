@@ -82,6 +82,9 @@
     <Image Include="data\models\bunny2\bunny_diffuse.png" />
     <Image Include="data\models\bunny2\bunny_normal_map.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\models\sponza\copyright.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

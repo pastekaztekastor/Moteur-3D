@@ -199,4 +199,7 @@
     <Image Include="data\models\bunny2\bunny_normal_map.png" />
     <Image Include="data\models\bunny2\bunny_diffuse.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\models\sponza\copyright.txt" />
+  </ItemGroup>
 </Project>
