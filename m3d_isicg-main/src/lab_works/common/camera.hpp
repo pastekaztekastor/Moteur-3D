@@ -27,6 +27,8 @@ namespace M3D_ISICG
 		void rotate( const float p_yaw, const float p_pitch );
 
 		void print() const;
+		float _zNear		= 0.1f;
+		float _zFar			= 1000.f;
 
 	  private:
 		void _computeViewMatrix();
@@ -46,8 +48,6 @@ namespace M3D_ISICG
 		int	  _screenHeight = 720;
 		float _aspectRatio	= float( _screenWidth ) / _screenHeight;
 		float _fovy			= 60.f;
-		float _zNear		= 0.1f;
-		float _zFar			= 1000.f;
 
 		Mat4f _viewMatrix		= MAT4F_ID;
 		Mat4f _projectionMatrix = MAT4F_ID;

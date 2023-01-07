@@ -22,6 +22,8 @@ namespace M3D_ISICG
 		glEnable( GL_DEPTH_TEST );
 		
 		_meshBunny.load( "bunny1", _meshBunny._dirPath + "bunny2/bunny_2.obj" );
+		//_meshBunny._textu
+
 		_meshSponza.load( "sponza1", _meshSponza._dirPath + "sponza/sponza.obj" );
 		_meshSponza._transformation = glm::scale( _meshSponza._transformation, glm::vec3( 0.0003 ) );
 
@@ -154,6 +156,16 @@ namespace M3D_ISICG
 		if ( ImGui::SliderFloat( "Fovy", &_fovySlider, 60.f, 120.f ) )
 		{
 			_camera.setFovy( _fovySlider );
+			_updateMVPMatrix();
+		}
+		if ( ImGui::SliderFloat( "Z near", &_zNearSlider, 0.f, 2000.f ) )
+		{
+			_camera._zNear = _zNearSlider;
+			_updateMVPMatrix();
+		}
+		if ( ImGui::SliderFloat( "Z far", &_zFareSlider, 0, 2000.f ) )
+		{
+			_camera._zFar = _zFareSlider;
 			_updateMVPMatrix();
 		}
 		if ( ImGui::Button( _mesh._name.c_str() ) )

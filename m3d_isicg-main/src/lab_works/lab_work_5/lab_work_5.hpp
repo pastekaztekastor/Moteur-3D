@@ -40,6 +40,8 @@ namespace M3D_ISICG
 		GLuint	_program, _MVPMatrixUniform, _MVMatrixUniform, _NormalMatrixUniform;
 		GLfloat _time		= 0;
 		GLfloat _fovySlider = 60.f;
+		GLfloat _zNearSlider = 0.1;
+		GLfloat _zFareSlider = 1000.f;
 		// ================
 
 		// ================ Settings.

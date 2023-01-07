@@ -13,6 +13,7 @@ uniform mat4 uNormalMatrix;
 out vec3 inVertexNormal;
 out vec3 inVertexPosition;
 out vec3 inLumierPosition;
+out vec2 inFragTexCoords;
 
 void main()
 {
@@ -23,4 +24,5 @@ void main()
 	inVertexNormal	= normal.xyz;
 	inVertexPosition = (uMVMatrix * vec4(aVertexPosition,1.f)).xyz;
 	inLumierPosition = vec3(0,0,0);
+	inFragTexCoords = aVertexTexCoords;
 }

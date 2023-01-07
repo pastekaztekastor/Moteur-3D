@@ -20,39 +20,30 @@ namespace M3D_ISICG
 	}
 
 	void TriangleMesh::render( const GLuint p_glProgram ) const { 
-
-		/*
-		
-
-		GLint normalMap = glGetUniformLocation( p_glProgram, "uNormalMap" );
-		glProgramUniform1f( p_glProgram, normalMap, _material._hasNomalMap ) );
-		if ( _material._hasAmbientMap )
-			glBindTextureUnit( 2, _material._ambientMap._id );
-		
-		GLint ambienteColor = glGetUniformLocation( p_glProgram, "uAmbientColor" );
-		glProgramUniform1f( p_glProgram, ambienteColor, 1, glm::value_ptr( _material._ambient ) );
-		if ( _material._hasAmbientMap )
-			glBindTextureUnit( 2, _material._ambientMap._id );
-		
-		*/
-
-		// TP4
-
 		// DIFFUSE
-		GLint diffuseColor = glGetUniformLocation( p_glProgram, "uDiffuseColor" );
+		GLint diffuseColor	= glGetUniformLocation( p_glProgram, "uDiffuseColor" );
+		GLint diffuseMap	= glGetUniformLocation( p_glProgram, "uHasDiffuseMap" );
+
 		glProgramUniform3fv( p_glProgram, diffuseColor, 1, glm::value_ptr( _material._diffuse ) );
+		glProgramUniform1i( p_glProgram, diffuseMap, _material._hasDiffuseMap );
 		if ( _material._hasDiffuseMap )
 			glBindTextureUnit( 1, _material._diffuseMap._id );
 
-		// AMBIENT
+		// AMBIENT 
 		GLint ambienteColor = glGetUniformLocation( p_glProgram, "uAmbientColor" );
+		GLint ambienteMap   = glGetUniformLocation( p_glProgram, "uHasAmbientMap" );
+
 		glProgramUniform3fv( p_glProgram, ambienteColor, 1, glm::value_ptr( _material._ambient ) );
+		glProgramUniform1i( p_glProgram, ambienteMap, _material._hasAmbientMap );
 		if ( _material._hasAmbientMap )
 			glBindTextureUnit( 2, _material._ambientMap._id );
 		
 		// SPECULAIRE
 		GLint specularColor = glGetUniformLocation( p_glProgram, "uSpecularColor" );
+		GLint specularMap   = glGetUniformLocation( p_glProgram, "uHasSpecularMap" );
+
 		glProgramUniform3fv( p_glProgram, specularColor, 1, glm::value_ptr( _material._specular ) );
+		glProgramUniform1i( p_glProgram, specularMap, _material._hasSpecularMap );
 		if ( _material._hasSpecularMap )
 			glBindTextureUnit( 3, _material._specularMap._id );
 
@@ -63,6 +54,10 @@ namespace M3D_ISICG
 		glBindVertexArray( _vao );
 		glDrawElements( GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, 0 );
 		glBindVertexArray( 0 );
+
+		glBindTextureUnit( 1, 0 );
+		glBindTextureUnit( 2, 0 );
+		glBindTextureUnit( 3, 0 );
 	}
 
 	void TriangleMesh::cleanGL()
