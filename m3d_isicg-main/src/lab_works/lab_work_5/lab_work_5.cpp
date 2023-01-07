@@ -25,7 +25,7 @@ namespace M3D_ISICG
 		//_meshBunny._textu
 
 		_meshSponza.load( "sponza1", _meshSponza._dirPath + "sponza/sponza.obj" );
-		_meshSponza._transformation = glm::scale( _meshSponza._transformation, glm::vec3( 0.0003 ) );
+		_meshSponza._transformation = glm::scale( _meshSponza._transformation, glm::vec3( 0.003 ) );
 
 		_mesh = _meshBunny;
 
