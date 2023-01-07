@@ -1,0 +1,27 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {paragraph}{Une longue absence}{1}{section*.4}%
+\contentsline {paragraph}{Guacamole}{1}{section*.5}%
+\contentsline {paragraph}{De l'aide de mes camarades}{1}{section*.6}%
+\contentsline {section}{\numberline {2}Contenu}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Architecture des TP}{1}{subsection.2.1}%
+\contentsline {paragraph}{}{1}{section*.7}%
+\contentsline {paragraph}{}{1}{section*.8}%
+\contentsline {subsection}{\numberline {2.2}Le lab\_works\_manager}{1}{subsection.2.2}%
+\contentsline {paragraph}{}{2}{section*.9}%
+\contentsline {paragraph}{Chargement d'un lab\_works}{2}{section*.10}%
+\contentsline {subsection}{\numberline {2.3}Le lab\_works}{2}{subsection.2.3}%
+\contentsline {paragraph}{}{2}{section*.11}%
+\contentsline {subsubsection}{\numberline {2.3.1}La méthode init()}{2}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}La méthode animate(float)}{2}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}La méthode render()}{3}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}La méthode handleEvents(SDL\_Event)}{3}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}La méthode displayUI()}{3}{subsubsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.4}Présentation des 6 TPs}{3}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}TP1}{3}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}TP2}{4}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}TP3}{4}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}TP4}{4}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}TP5}{4}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}TP6}{4}{subsubsection.2.4.6}%
+\contentsline {section}{\numberline {3}Conclusion}{4}{section.3}%
