@@ -215,7 +215,6 @@ namespace M3D_ISICG
 		if (ImGui::SliderFloat("Transparence", &_transparencValue, 0.f, 1.f)) {
 			glProgramUniform1f( _program, _transparenc, _transparencValue );
 		}
-		ImGui::Text( "No setting available!" );
 		if (ImGui::ColorEdit3("couleur fond", glm::value_ptr(_bgColor))) {
 			glClearColor( _bgColor.x, _bgColor.y, _bgColor.z, _bgColor.w );
 		}

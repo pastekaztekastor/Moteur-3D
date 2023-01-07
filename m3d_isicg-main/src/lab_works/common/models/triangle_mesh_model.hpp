@@ -35,7 +35,7 @@ namespace M3D_ISICG
 		int _nbTriangles = 0;
 		int _nbVertices	 = 0;
 
-		FilePath _dirPath = "";
+		FilePath _dirPath = "data/models/";
 	};
 } // namespace M3D_ISICG
 

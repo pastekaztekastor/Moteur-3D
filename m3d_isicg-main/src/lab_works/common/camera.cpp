@@ -60,8 +60,8 @@ namespace M3D_ISICG
 
 	void Camera::setLookAt( const Vec3f & p_lookAt )
 	{
-		// _invDirection = ?
-		_computeViewMatrix();
+		_invDirection = p_lookAt;
+		_computeViewMatrix(  );
 	}
 
 	void Camera::setFovy( const float p_fovy )
@@ -76,7 +76,8 @@ namespace M3D_ISICG
 	}
 
 	void Camera::_computeProjectionMatrix()
-	{
+	{ 
+		_projectionMatrix = glm::perspective( glm::radians(_fovy), _aspectRatio, _zNear, _zFar );
 	}
 
 	void Camera::_updateVectors()

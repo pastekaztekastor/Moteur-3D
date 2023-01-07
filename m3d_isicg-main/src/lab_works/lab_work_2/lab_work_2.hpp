@@ -27,7 +27,6 @@ namespace M3D_ISICG
 		std::vector<Vec2f> _bufferVertices;
 		std::vector<float> _bufferColor;
 		std::vector<int> _bufferTriangle;
-
 		// ================
 
 		// ================ GL data.

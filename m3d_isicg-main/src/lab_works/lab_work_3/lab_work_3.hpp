@@ -8,8 +8,6 @@
 #include "define.hpp"
 #include <vector>
 
-
-
 namespace M3D_ISICG
 {
 	class LabWork3 : public BaseLabWork
@@ -22,12 +20,8 @@ namespace M3D_ISICG
 		void animate( const float p_deltaTime ) override;
 		void render() override;
 
-		bool creationShader();
-
 		void handleEvents( const SDL_Event & p_event ) override;
 		void displayUI() override;
-
-		void _updateViewMatrix();
 
 		struct Mesh
 		{
@@ -35,21 +29,27 @@ namespace M3D_ISICG
 			std::vector<Vec3f>		  _sommets_Couleur;
 			std::vector<unsigned int> _sommets_Indices;
 			Mat4f					  _objet_transformation;
-			GLuint					  _vboColor, _vboPosition, _vao, _ebo;
+			GLuint					  _vboColor, _vboVertice, _vao, _ebo;
 		};
 
 	  private:
-
 		Mesh _createCube();
 		void _initBuffers();
+		bool _initShader();
+		void _initCamera();
+
+		void _updateViewMatrix();
+		void _updateProjectionMatrix();
+		void _updateModelMatrix();
 
 		// ================ Scene data.
-		Mesh			   _cube;
+		Mesh _cube;
 		// ================
 
 		// ================ GL data.
-		GLuint	_program;
-		GLfloat _time;
+		GLuint	_program, _ModelMatrix, _ViewMatrix, _ProjectionMatrix;
+		GLfloat _time		= 0;
+		GLfloat _fovySlider = 60.f;
 		// ================
 
 		// ================ Settings.
@@ -58,8 +58,8 @@ namespace M3D_ISICG
 
 		// ================ Dans le .hpp Caméra settings
 		Camera _camera;
-		float _cameraSpeed		 = 0.1f;
-		float _cameraSensitivity = 0.1f;
+		float  _cameraSpeed		  = 0.1f;
+		float  _cameraSensitivity = 0.1f;
 		// ================
 
 		static const std::string _shaderFolder;

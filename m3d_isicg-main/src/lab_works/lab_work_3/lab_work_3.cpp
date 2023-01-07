@@ -9,6 +9,22 @@ namespace M3D_ISICG
 {
 	const std::string LabWork3::_shaderFolder = "src/lab_works/lab_work_3/shaders/";
 
+	LabWork3::Mesh LabWork3::_createCube()
+	{
+		LabWork3::Mesh mesh;
+
+		mesh._sommets_Position
+			= { Vec3f( .5, .5, .5 ),  Vec3f( .5, .5, -.5 ),	 Vec3f( .5, -.5, .5 ),	Vec3f( .5, -.5, -.5 ),
+				Vec3f( -.5, .5, .5 ), Vec3f( -.5, .5, -.5 ), Vec3f( -.5, -.5, .5 ), Vec3f( -.5, -.5, -.5 ) };
+		mesh._sommets_Couleur = { Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ),
+								  Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ),
+								  Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ) };
+		mesh._sommets_Indices = { 0, 1, 2, 3, 1, 2, 1, 3, 5, 7, 3, 5, 5, 7, 4, 6, 7, 4,
+								  4, 6, 0, 2, 6, 0, 5, 4, 1, 0, 4, 1, 6, 7, 2, 3, 7, 2 };
+		mesh._objet_transformation = glm::scale( glm::mat4( 1.f ), Vec3f( .8 ) );
+		return mesh;
+	}
+
 	LabWork3::~LabWork3()
 	{
 		// ##################################################################################
@@ -20,61 +36,42 @@ namespace M3D_ISICG
 
 	bool LabWork3::init()
 	{
-		_program = glCreateProgram();
-		bool resultCreationShader = LabWork3::creationShader();
+		_program				  = glCreateProgram();
+		bool resultCreationShader = LabWork3::_initShader();
+		glClearColor( _bgColor.x, _bgColor.y, _bgColor.z, _bgColor.w );
+		glEnable( GL_DEPTH_TEST );
 
 		// ##################################################################################
 		// GENERAL DATA
 		// ##################################################################################
 		_cube = LabWork3::_createCube();
-		_time				= 0.f;
+		//_time				= 0.f;
 		std::cout << "Initializing lab work 3..." << std::endl;
+		LabWork3::_initBuffers();
+		LabWork3::_initCamera();
+
 
 		// ##################################################################################
 		// UNIFORM SHADER DATA
 		// ##################################################################################
-		
+		_ModelMatrix = glGetUniformLocation( _program, "uModelMatrix" );
+		_updateModelMatrix();
+		_ViewMatrix = glGetUniformLocation( _program, "uViewMatrix" );
+		_updateViewMatrix();
+		_ProjectionMatrix = glGetUniformLocation( _program, "uProjectionMatrix" );
+		_updateProjectionMatrix();
 
 		// ##################################################################################
 		// BUFFER INIT & VBO EBO VAO
 		// ##################################################################################
-		LabWork3::_initBuffers();
 		
+		glUseProgram( _program );
 		// ##################################################################################
 		// END
 		// ##################################################################################
-		glUseProgram( _program );
 		std::cout << "Use program" << std::endl;
 
 		return resultCreationShader;
-	}
-
-	LabWork3::Mesh LabWork3::_createCube() { 
-		LabWork3::Mesh mesh;
-
-		mesh._sommets_Position = {
-			Vec3f( 1.f, 1.f, 1.f ),	 Vec3f( 1.f, 1.f, -1.f ),  Vec3f( 1.f, -1.f, 1.f ),	 Vec3f( 1.f, -1.f, -1.f ),
-			Vec3f( -1.f, 1.f, 1.f ), Vec3f( -1.f, 1.f, -1.f ), Vec3f( -1.f, -1.f, 1.f ), Vec3f( -1.f, -1.f, -1.f )
-		};
-		mesh._sommets_Couleur  = { 
-			Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), 
-			Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ), Vec3f( getRandomVec3f() ) 
-		};
-		mesh._sommets_Indices = { 
-			1, 2, 3,
-			2, 3, 4, 
-			1, 2, 5, 
-			2, 5, 6, 
-			3, 4, 7, 
-			4, 7, 8,
-			2, 4, 8, 
-			2, 6, 8, 
-			1, 3, 7, 
-			1, 5, 7, 
-			5, 6, 7, 
-			6, 7, 8 
-		};
-		return mesh;
 	}
 
 	void LabWork3::_initBuffers() {
@@ -83,10 +80,10 @@ namespace M3D_ISICG
 		// ##################################################################################
 
 		// Création de la VBO vertice -------------------------------------------------------
-		glCreateBuffers( 1, &_cube._vboPosition );
+		glCreateBuffers( 1, &_cube._vboVertice );
 		glNamedBufferData( 
-			_cube._vboPosition,
-			sizeof( Vec2f ) * _cube._sommets_Position.size(),
+			_cube._vboVertice,
+			sizeof( Vec3f ) * _cube._sommets_Position.size(),
 			_cube._sommets_Position.data(),
 			GL_STATIC_DRAW
 		);
@@ -97,7 +94,7 @@ namespace M3D_ISICG
 		glCreateBuffers( 1, &_cube._vboColor );
 		glNamedBufferData( 
 			_cube._vboColor,
-			sizeof( float ) * _cube._sommets_Couleur.size(),
+			sizeof( Vec3f ) * _cube._sommets_Couleur.size(),
 			_cube._sommets_Couleur.data(),
 			GL_STATIC_DRAW
 		);
@@ -131,12 +128,12 @@ namespace M3D_ISICG
 		glEnableVertexArrayAttrib( _cube._vao, 1 ); // color
 
 		// Definissez le format de l’attribut avec la fonction ------------------------------
-		glVertexArrayAttribFormat( _cube._vao, 0, 2, GL_FLOAT, GL_FALSE, 0 );
+		glVertexArrayAttribFormat( _cube._vao, 0, 3, GL_FLOAT, GL_FALSE, 0 );
 		glVertexArrayAttribFormat( _cube._vao, 1, 3, GL_FLOAT, GL_FALSE, 0 );
 
 		// Liez le VBO et le VAO avec la fonction -------------------------------------------
-		glVertexArrayVertexBuffer( _cube._vao, 0, _cube._vboPosition, 0, sizeof( Vec2f ) );
-		glVertexArrayVertexBuffer( _cube._vao, 1, _cube._vboColor, 0, sizeof( float ) * 3 );
+		glVertexArrayVertexBuffer( _cube._vao, 0, _cube._vboVertice, 0, sizeof( Vec3f ) );
+		glVertexArrayVertexBuffer( _cube._vao, 1, _cube._vboColor	, 0, sizeof( Vec3f));
 
 		// Enfin, connectez le VAO avec le Vertex shader ------------------------------------
 		glVertexArrayAttribBinding( _cube._vao, 0, 0 );
@@ -147,7 +144,7 @@ namespace M3D_ISICG
 
 	}
 
-	bool LabWork3::creationShader() {
+	bool LabWork3::_initShader() {
 		// ##################################################################################
 		// Création de nos shader
 		// ##################################################################################
@@ -225,7 +222,21 @@ namespace M3D_ISICG
 
 	}
 
-	void LabWork3::animate( const float p_deltaTime ){}
+	void LabWork3::_initCamera() { 
+		_camera.setPosition( Vec3f( 0, 1, 3 ) );
+		_camera.setScreenSize( _windowWidth, _windowHeight );
+	}
+
+	void LabWork3::animate( const float p_deltaTime ){
+		
+		_cube._objet_transformation = glm::rotate(
+			_cube._objet_transformation, 
+			(float)glm::radians( p_deltaTime * 0.5 ), 
+			Vec3f( 0.f, 1.f, 1.f ) 
+		);
+
+		glProgramUniformMatrix4fv( _program, _ModelMatrix, 1, GL_FALSE, glm::value_ptr( _cube._objet_transformation ) );
+	}
 
 	void LabWork3::render()
 	{
@@ -234,7 +245,7 @@ namespace M3D_ISICG
 
 		// Liez le VAO au programme avec ----------------------------------------------------
 		glBindVertexArray( _cube._vao );
-		animate( 1.f );
+		//animate( 1.f );
 
 		// Lancez le pipeline  --------------------------------------------------------------
 		glDrawElements( GL_TRIANGLES, _cube._sommets_Indices.size(), GL_UNSIGNED_INT, 0 );
@@ -250,15 +261,47 @@ namespace M3D_ISICG
 		{
 			glClearColor( _bgColor.x, _bgColor.y, _bgColor.z, _bgColor.w );
 		}
+		if ( ImGui::SliderFloat( "Fovy", &_fovySlider, 60.f, 120.f ) )
+		{
+			_camera.setFovy( _fovySlider);
+			_updateProjectionMatrix();
+		}
 		ImGui::End();
 	}
 
-	void LabWork3::_updateViewMatrix() {}
+	void LabWork3::_updateViewMatrix()
+	{
 
-	
-	//void LabWork3::handleEvents( const SDL_Event & p_event ) {}
+		glProgramUniformMatrix4fv( 
+			_program, 
+			_ViewMatrix,
+			1, 
+			GL_FALSE, 
+			glm::value_ptr( _camera.getViewMatrix() ) 
+		);	
+	}
 
-	// Ajout du code fourni pour le TP 3
+	void LabWork3::_updateProjectionMatrix() 
+	{
+		glProgramUniformMatrix4fv( 
+			_program, 
+			_ProjectionMatrix, 
+			1, 
+			GL_FALSE, 
+			glm::value_ptr( _camera.getProjectionMatrix() ) 
+		);
+	}
+
+	void LabWork3::_updateModelMatrix()
+	{
+		glProgramUniformMatrix4fv( 
+			_program, 
+			_ModelMatrix, 
+			1, 
+			GL_FALSE, 
+			glm::value_ptr( _cube._objet_transformation ) 
+		);
+	}
 
 	void LabWork3::handleEvents( const SDL_Event & p_event )
 	{
@@ -302,8 +345,5 @@ namespace M3D_ISICG
 			_updateViewMatrix();
 		}
 	}
-
-
-
 
 } // namespace M3D_ISICG

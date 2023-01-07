@@ -34,6 +34,8 @@
     <ClCompile Include="src\lab_works\lab_work_1\lab_work_1.cpp" />
     <ClCompile Include="src\lab_works\common\lab_work_manager.cpp" />
     <ClCompile Include="src\lab_works\lab_work_3\lab_work_3.cpp" />
+    <ClCompile Include="src\lab_works\lab_work_4\lab_work_4.cpp" />
+    <ClCompile Include="src\lab_works\lab_work_5\lab_work_5.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\utils\image.cpp" />
   </ItemGroup>
@@ -55,6 +57,9 @@
     <ClInclude Include="src\lab_works\common\models\triangle_mesh_model.hpp" />
     <ClInclude Include="src\lab_works\lab_work_1\lab_work_1.hpp" />
     <ClInclude Include="src\lab_works\lab_work_3\lab_work_2.hpp" />
+    <ClInclude Include="src\lab_works\lab_work_3\lab_work_3.hpp" />
+    <ClInclude Include="src\lab_works\lab_work_4\lab_work_4.hpp" />
+    <ClInclude Include="src\lab_works\lab_work_5\lab_work_5.hpp" />
     <ClInclude Include="src\utils\file_path.hpp" />
     <ClInclude Include="src\utils\gl_utils.hpp" />
     <ClInclude Include="src\utils\image.hpp" />
@@ -68,6 +73,14 @@
     <None Include="src\lab_works\lab_work_2\shaders\lw2.vert" />
     <None Include="src\lab_works\lab_work_3\shaders\lw3.frag" />
     <None Include="src\lab_works\lab_work_3\shaders\lw3.vert" />
+    <None Include="src\lab_works\lab_work_4\shaders\mesh.frag" />
+    <None Include="src\lab_works\lab_work_4\shaders\mesh.vert" />
+    <None Include="src\lab_works\lab_work_5\shaders\mesh_texture.frag" />
+    <None Include="src\lab_works\lab_work_5\shaders\mesh_texture.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\models\bunny2\bunny_diffuse.png" />
+    <Image Include="data\models\bunny2\bunny_normal_map.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
