@@ -20,7 +20,7 @@ namespace M3D_ISICG
 	bool LabWork2::init()
 	{
 		// ##################################################################################
-		// Création des données
+		// Creation des donnees
 		// ##################################################################################
 		//
 		// vertices -------------------------------------------------------------------------
@@ -41,18 +41,18 @@ namespace M3D_ISICG
 
 
 		// ##################################################################################
-		// Création de nos shader
+		// Creation de nos shader
 		// ##################################################################################
 		//
 		// Lecture des shader ---------------------------------------------------------------
 		const std::string vertexShaderStr = readFile( _shaderFolder + "lw2.vert" );
 		const std::string fragntShaderStr = readFile( _shaderFolder + "lw2.frag" );
 
-		//  Création des Obj shader ---------------------------------------------------------
+		//  Creation des Obj shader ---------------------------------------------------------
 		GLuint vshader = glCreateShader( GL_VERTEX_SHADER );
 		GLuint fshader = glCreateShader( GL_FRAGMENT_SHADER );
 
-		// Liaison des chaine de caractères au Obj Shader -----------------------------------
+		// Liaison des chaine de caracteres au Obj Shader -----------------------------------
 		const GLchar * vSrc = vertexShaderStr.c_str(); // On transforme le std::string en GLchar
 		const GLchar * fSrc = fragntShaderStr.c_str(); // On transforme le std::string en GLchar
 
@@ -94,7 +94,7 @@ namespace M3D_ISICG
 		glShaderSource( vshader, 1, &vSrc, NULL );
 		glShaderSource( fshader, 1, &fSrc, NULL );
 
-		// Création du programme ------------------------------------------------------------
+		// Creation du programme ------------------------------------------------------------
 		_program = glCreateProgram();
 
 		// On link les Shader ---------------------------------------------------------------
@@ -121,48 +121,48 @@ namespace M3D_ISICG
 
 		
 		// ##################################################################################
-		// Création de nos données uniforme de shader
+		// Creation de nos donnees uniforme de shader
 		// ##################################################################################
 
 		_translation = glGetUniformLocation( _program, "uTranslationX" );
 		_transparenc = glGetUniformLocation( _program, "uAlphaCanal" );
 
 		// ##################################################################################
-		// Création de nos données - VBO
+		// Creation de nos donnees - VBO
 		// ##################################################################################
 
-		// Création de la VBO vertice -------------------------------------------------------
+		// Creation de la VBO vertice -------------------------------------------------------
 		glCreateBuffers( 1, &_vboVertice );
 		glNamedBufferData( _vboVertice, sizeof( Vec2f ) * _bufferVertices.size(), _bufferVertices.data(), GL_STATIC_DRAW );
 
-		// Création de la VBO color ---------------------------------------------------------
+		// Creation de la VBO color ---------------------------------------------------------
 		glCreateBuffers( 1, &_vboColor);
 		glNamedBufferData( _vboColor, sizeof( float ) * _bufferColor.size(), _bufferColor.data(), GL_STATIC_DRAW );
 
 		std::cout << "VBO created" << std::endl;
 
 		// ##################################################################################
-		// Création de nos données - EBO
+		// Creation de nos donnees - EBO
 		// ##################################################################################
 
-		// Création de la EBO ---------------------------------------------------------------
+		// Creation de la EBO ---------------------------------------------------------------
 		glCreateBuffers( 1, &_ebo );
 		glNamedBufferData( _ebo, sizeof( int ) * _bufferTriangle.size(), _bufferTriangle.data(), GL_STATIC_DRAW );
 
 		std::cout << "EBO created" << std::endl;
 
 		// ##################################################################################
-		// Création de nos données - VAO
+		// Creation de nos donnees - VAO
 		// ##################################################################################
 
 		// Creez le VAO ---------------------------------------------------------------------
 		glCreateVertexArrays( 1, &_vao );
 
-		// Activez l’attribut 0 du VAO ------------------------------------------------------
+		// Activez leattribut 0 du VAO ------------------------------------------------------
 		glEnableVertexArrayAttrib( _vao, 0 ); // vertices
 		glEnableVertexArrayAttrib( _vao, 1 ); // color
 
-		// Definissez le format de l’attribut avec la fonction ------------------------------
+		// Definissez le format de leattribut avec la fonction ------------------------------
 		glVertexArrayAttribFormat( _vao, 0, 2, GL_FLOAT, GL_FALSE, 0 );
 		glVertexArrayAttribFormat( _vao, 1, 3, GL_FLOAT, GL_FALSE, 0 );
 
@@ -174,7 +174,7 @@ namespace M3D_ISICG
 		glVertexArrayAttribBinding( _vao, 0, 0 );
 		glVertexArrayAttribBinding( _vao, 1, 1 );
 
-		// On relie l'EBO à la VAO ----------------------------------------------------------
+		// On relie l'EBO e la VAO ----------------------------------------------------------
 		glVertexArrayElementBuffer( _vao, _ebo );
 
 		// Specifier le programme a utiliser ------------------------------------------------

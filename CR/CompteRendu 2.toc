@@ -28,12 +28,4 @@
 \contentsline {subsubsection}{\numberline {2.6.2}Les varible uniforme}{5}{subsubsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.7}TP3 Rotation du cube et caméra}{6}{subsection.2.7}%
 \contentsline {subsubsection}{\numberline {2.7.1}Création du Cube}{6}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\numberline {2.7.2}La matrice MVP}{6}{subsubsection.2.7.2}%
-\contentsline {paragraph}{}{7}{section*.16}%
-\contentsline {subsubsection}{\numberline {2.7.3}Ajout d'une caméra}{7}{subsubsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.8}TP4 Le bunny et la lumière}{7}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}La fin du code de Triangle\_mesh.cpp}{7}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Une seule matrice MVP}{8}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Le shader}{8}{subsubsection.2.8.3}%
-\contentsline {subsection}{\numberline {2.9}Le TP5 une première scène}{9}{subsection.2.9}%
-\contentsline {section}{\numberline {3}Conclusion}{9}{section.3}%
+\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}%

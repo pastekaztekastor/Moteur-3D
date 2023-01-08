@@ -79,7 +79,7 @@ namespace M3D_ISICG
 		// VBO DATA
 		// ##################################################################################
 
-		// Création de la VBO vertice -------------------------------------------------------
+		// Creation de la VBO vertice -------------------------------------------------------
 		glCreateBuffers( 1, &_cube._vboVertice );
 		glNamedBufferData( 
 			_cube._vboVertice,
@@ -90,7 +90,7 @@ namespace M3D_ISICG
 
 		std::cout << "VBO vertices created" << std::endl;
 
-		// Création de la VBO color ---------------------------------------------------------
+		// Creation de la VBO color ---------------------------------------------------------
 		glCreateBuffers( 1, &_cube._vboColor );
 		glNamedBufferData( 
 			_cube._vboColor,
@@ -105,7 +105,7 @@ namespace M3D_ISICG
 		// EBO DATA
 		// ##################################################################################
 
-		// Création de la EBO ---------------------------------------------------------------
+		// Creation de la EBO ---------------------------------------------------------------
 		glCreateBuffers( 1, &_cube._ebo );
 		glNamedBufferData(
 			_cube._ebo, 
@@ -123,11 +123,11 @@ namespace M3D_ISICG
 		// Creez le VAO ---------------------------------------------------------------------
 		glCreateVertexArrays( 1, &_cube._vao );
 
-		// Activez l’attribut 0 du VAO ------------------------------------------------------
+		// Activez leattribut 0 du VAO ------------------------------------------------------
 		glEnableVertexArrayAttrib( _cube._vao, 0 ); // vertices
 		glEnableVertexArrayAttrib( _cube._vao, 1 ); // color
 
-		// Definissez le format de l’attribut avec la fonction ------------------------------
+		// Definissez le format de leattribut avec la fonction ------------------------------
 		glVertexArrayAttribFormat( _cube._vao, 0, 3, GL_FLOAT, GL_FALSE, 0 );
 		glVertexArrayAttribFormat( _cube._vao, 1, 3, GL_FLOAT, GL_FALSE, 0 );
 
@@ -139,25 +139,25 @@ namespace M3D_ISICG
 		glVertexArrayAttribBinding( _cube._vao, 0, 0 );
 		glVertexArrayAttribBinding( _cube._vao, 1, 1 );
 
-		// On relie l'EBO à la VAO ----------------------------------------------------------
+		// On relie l'EBO e la VAO ----------------------------------------------------------
 		glVertexArrayElementBuffer( _cube._vao, _cube._ebo );
 
 	}
 
 	bool LabWork3::_initShader() {
 		// ##################################################################################
-		// Création de nos shader
+		// Creation de nos shader
 		// ##################################################################################
 		//
 		// Lecture des shader ---------------------------------------------------------------
 		const std::string vertexShaderStr = readFile( _shaderFolder + "lw3.vert" );
 		const std::string fragntShaderStr = readFile( _shaderFolder + "lw3.frag" );
 
-		//  Création des Obj shader ---------------------------------------------------------
+		//  Creation des Obj shader ---------------------------------------------------------
 		GLuint vshader = glCreateShader( GL_VERTEX_SHADER );
 		GLuint fshader = glCreateShader( GL_FRAGMENT_SHADER );
 
-		// Liaison des chaine de caractères au Obj Shader -----------------------------------
+		// Liaison des chaine de caracteres au Obj Shader -----------------------------------
 		const GLchar * vSrc = vertexShaderStr.c_str(); // On transforme le std::string en GLchar
 		const GLchar * fSrc = fragntShaderStr.c_str(); // On transforme le std::string en GLchar
 

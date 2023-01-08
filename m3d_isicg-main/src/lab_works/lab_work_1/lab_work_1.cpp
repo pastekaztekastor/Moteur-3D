@@ -27,18 +27,18 @@ namespace M3D_ISICG
 
 
 		// ##################################################################################
-		// Création de nos shader
+		// Creation de nos shader
 		// ##################################################################################
 		// 
 		// Lecture des shader ---------------------------------------------------------------
 		const std::string vertexShaderStr = readFile( _shaderFolder + "lw1.vert" );
 		const std::string fragntShaderStr = readFile( _shaderFolder + "lw1.frag" );
 
-		//  Création des Obj shader ---------------------------------------------------------
+		//  Creation des Obj shader ---------------------------------------------------------
 		GLuint vshader = glCreateShader( GL_VERTEX_SHADER );
 		GLuint fshader = glCreateShader( GL_FRAGMENT_SHADER);
 
-		// Liaison des chaine de caractères au Obj Shader -----------------------------------
+		// Liaison des chaine de caracteres au Obj Shader -----------------------------------
 		const GLchar * vSrc = vertexShaderStr.c_str(); // On transforme le std::string en GLchar
 		const GLchar * fSrc = fragntShaderStr.c_str(); // On transforme le std::string en GLchar
 		
@@ -78,7 +78,7 @@ namespace M3D_ISICG
 		glShaderSource( vshader, 1, &vSrc, NULL );
 		glShaderSource( fshader, 1, &fSrc, NULL );
 
-		// Création du programme ------------------------------------------------------------
+		// Creation du programme ------------------------------------------------------------
 		_program = glCreateProgram();
 
 		// On link les Shader ---------------------------------------------------------------
@@ -103,28 +103,28 @@ namespace M3D_ISICG
 		glDeleteShader( vshader );
 		glDeleteShader( fshader );
 
-		// ##################################################################################
-		// Création de nos données - VBO
+		// #############################################################S#####################
+		// Creation de nos donnees - VBO
 		// ##################################################################################
  
-		// Création de la VBO ---------------------------------------------------------------
+		// Creation de la VBO ---------------------------------------------------------------
 		glCreateBuffers( 1, &_vbo );
 		glNamedBufferData( _vbo, sizeof( Vec2f ) * _triangle.size(), _triangle.data(), GL_STATIC_DRAW );
 
 		std::cout << "VBO created" << std::endl;
 
 		// ##################################################################################
-		// Création de nos données - VAO
+		// Creation de nos donnees - VAO
 		// ##################################################################################
 
 
 		// Creez le VAO ---------------------------------------------------------------------
 		glCreateVertexArrays( 1, &_vao);
 
-		// Activez l’attribut 0 du VAO ------------------------------------------------------
+		// Activez leattribut 0 du VAO ------------------------------------------------------
 		glEnableVertexArrayAttrib( _vao, 0 );
 
-		// Definissez le format de l’attribut avec la fonction ------------------------------
+		// Definissez le format de leattribut avec la fonction ------------------------------
 		glVertexArrayAttribFormat( _vao, 0, 2, GL_FLOAT, GL_FALSE, 0 );
 
 		// Liez le VBO et le VAO avec la fonction -------------------------------------------

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.8)  7 JAN 2023 01:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.8)  8 JAN 2023 23:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,7 +575,7 @@ LaTeX Info: Redefining \nameref on input line 121.
 \@outlinefile=\write3
 \openout3 = `CompteRendu.out'.
 
-<logo.jpg, id=76, 513.92pt x 102.3825pt>
+<logo.jpg, id=112, 513.92pt x 102.3825pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 132.
@@ -604,15 +604,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--18
 \tf@lof=\write6
 \openout6 = `CompteRendu.lof'.
 
+ (./CompteRendu.lol)
+\tf@lol=\write7
+\openout7 = `CompteRendu.lol'.
+
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo.jpg>]
-Overfull \hbox (12.03178pt too wide) in paragraph at lines 198--199
+Overfull \hbox (12.03178pt too wide) in paragraph at lines 199--200
  [][] \T1/cmr/m/n/10 Pour fa-ci-li-ter la na-vi-ga-tion entre les dif-fé-rents lab_works, nous avons mis en place un lab_works_manager.
  []
 
 
-Overfull \hbox (0.14468pt too wide) in paragraph at lines 198--199
+Overfull \hbox (0.14468pt too wide) in paragraph at lines 199--200
 \T1/cmr/m/n/10 Ce der-nier était ac-ces-sible de-puis le menu prin-ci-pal de l'ap-pli-ca-tion et per-met-tait de pas-ser d'un lab_works
  []
 
@@ -620,9 +624,9 @@ Overfull \hbox (0.14468pt too wide) in paragraph at lines 198--199
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.199 
+l.200 
        [1]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 201.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 202.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -632,57 +636,79 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 203.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 204.
  (../m3d_isicg-main/src/lab_works/common/lab_work_manager.cpp
 consecutive:
 ) [2]
-<figures/TP1.png, id=152, 622.57594pt x 566.115pt>
+<figures/TP1.png, id=232, 622.57594pt x 566.115pt>
 File: figures/TP1.png Graphic file (type png)
 <use figures/TP1.png>
-Package pdftex.def Info: figures/TP1.png  used on input line 260.
+Package pdftex.def Info: figures/TP1.png  used on input line 263.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
-<figures/TP2.png, id=154, 622.57594pt x 566.115pt>
+<figures/TP2.png, id=234, 622.57594pt x 566.115pt>
 File: figures/TP2.png Graphic file (type png)
 <use figures/TP2.png>
-Package pdftex.def Info: figures/TP2.png  used on input line 266.
+Package pdftex.def Info: figures/TP2.png  used on input line 269.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
-<figures/TP3.png, id=155, 622.57594pt x 566.115pt>
+<figures/TP3.png, id=235, 622.57594pt x 566.115pt>
 File: figures/TP3.png Graphic file (type png)
 <use figures/TP3.png>
-Package pdftex.def Info: figures/TP3.png  used on input line 272.
+Package pdftex.def Info: figures/TP3.png  used on input line 275.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
-<figures/TP4.png, id=156, 622.57594pt x 566.115pt>
+<figures/TP4.png, id=236, 622.57594pt x 566.115pt>
 File: figures/TP4.png Graphic file (type png)
 <use figures/TP4.png>
-Package pdftex.def Info: figures/TP4.png  used on input line 278.
+Package pdftex.def Info: figures/TP4.png  used on input line 281.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
-<figures/TP5.png, id=157, 622.57594pt x 566.115pt>
+<figures/TP5.png, id=237, 622.57594pt x 566.115pt>
 File: figures/TP5.png Graphic file (type png)
 <use figures/TP5.png>
-Package pdftex.def Info: figures/TP5.png  used on input line 284.
+Package pdftex.def Info: figures/TP5.png  used on input line 287.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
-<figures/TP6.png, id=158, 622.57594pt x 566.115pt>
+<figures/TP6.png, id=238, 622.57594pt x 566.115pt>
 File: figures/TP6.png Graphic file (type png)
 <use figures/TP6.png>
-Package pdftex.def Info: figures/TP6.png  used on input line 290.
+Package pdftex.def Info: figures/TP6.png  used on input line 293.
 (pdftex.def)             Requested size: 131.1124pt x 119.21591pt.
- [3 <./figures/TP1.png> <./figures/TP2.png> <./figures/TP3.png> <./figures/TP4.png> <./figures/TP5.png> <./figures/TP6.png>] [4] (./CompteRendu.aux)
+ [3 <./figures/TP1.png> <./figures/TP2.png> <./figures/TP3.png> <./figures/TP4.png> <./figures/TP5.png> <./figures/TP6.png>] (../m3d_isicg-main/src/lab_works/lab_work_1/shaders/lw1.vert) (../m3d_isicg-main/src/lab_works/lab_work_1/shaders/lw1.frag) [4] (../m3d_isicg-main/src/lab_works/lab_work_1/lab_work_1.cpp
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_1/lab_work_1.cpp
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_2/lab_work_2.cpp
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_2/lab_work_2.cpp
+consecutive:
+) [5] (../m3d_isicg-main/src/lab_works/lab_work_2/lab_work_2.cpp
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_2/shaders/lw2.vert
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_3/lab_work_3.cpp
+consecutive:
+) [6] (../m3d_isicg-main/src/lab_works/lab_work_3/shaders/lw3.vert
+consecutive:
+) (../m3d_isicg-main/src/lab_works/common/models/triangle_mesh.cpp
+consecutive:
+[7]) (../m3d_isicg-main/src/lab_works/lab_work_4/lab_work_4.cpp
+consecutive:
+) (../m3d_isicg-main/src/lab_works/lab_work_4/shaders/mesh.frag
+consecutive:
+[8]) [9] (./CompteRendu.aux)
 Package rerunfilecheck Info: File `CompteRendu.out' has not changed.
-(rerunfilecheck)             Checksum: 3553308C4DDD3D63DE7879C5D7DC33DF;2399.
+(rerunfilecheck)             Checksum: 16D9BDEA9F26A7E2A8FE5C545D8439D2;4720.
  ) 
 Here is how much of TeX's memory you used:
- 17197 strings out of 478268
- 265565 string characters out of 5846348
- 892809 words of memory out of 5000000
- 35120 multiletter control sequences out of 15000+600000
+ 17692 strings out of 478268
+ 275112 string characters out of 5846348
+ 1067199 words of memory out of 5000000
+ 35383 multiletter control sequences out of 15000+600000
  483887 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,11n,77p,1151b,1345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,12n,77p,1151b,1966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on CompteRendu.pdf (5 pages, 795269 bytes).
+Output written on CompteRendu.pdf (10 pages, 838846 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 554 PDF objects out of 1000 (max. 8388607)
+ 498 compressed objects within 5 object streams
+ 234 named destinations out of 1000 (max. 500000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 
